@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        
+        input[type="number"] {
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>1. Hello World</h2>
+    <div class="output">
+        <p id="helloWorld"></p>
+    </div>
+
+    <h2>2. Variables and Data Types</h2>
+    <p>
+        str = "This is a string"<br>
+        num = 42<br>
+        bool = true<br>
+    </p>
+    <div class="output">
+        <p id="variablesOutput"></p>
+    </div>
+
+    <h2>3. Basic Arithmetic</h2>
+    <div>
+        <p>a = 10<br>
+        b = 5<br>
+        addition = a + b<br>
+        subtraction = a - b<br>
+        multiplication = a * b<br>
+        division = a / b;</p>
+    </div>
+    <div class="output">
+        <p id="arithmeticOutput"></p>
+    </div>
+
+    <h2>4. Conditional Statements (Check odd or even)</h2>
+   <div class="output">
+        <input type="number" id="userNumber" placeholder="Enter a number">
+        <button onclick="checkOddEven()">Check Odd or Even</button>
+        <p id="conditionalOutput"></p>
+    </div>
+
+    <h2>5. Loops</h2>
+    <div class="output">
+        <p>The numbers from 1 to 100 using loop</p>
+        <p id="loopOutput"></p>
+    </div>
+
+    <script>
+        // 1. Hello World
+        document.getElementById("helloWorld").innerText = "Hello, World!";
+
+        // 2. Variables and Data Types
+        let str = "This is a string";
+        let num = 42;
+        let bool = true;
+        let variablesOutput = `String: ${str}, Number: ${num}, Boolean: ${bool}`;
+        document.getElementById("variablesOutput").innerText = variablesOutput;
+
+        // 3. Basic Arithmetic
+        let a = 10;
+        let b = 5;
+        let addition = a + b;
+        let subtraction = a - b;
+        let multiplication = a * b;
+        let division = a / b;
+        let arithmeticOutput = `
+            Addition: ${addition}, 
+            Subtraction: ${subtraction}, 
+            Multiplication: ${multiplication}, 
+            Division: ${division}
+        `;
+        document.getElementById("arithmeticOutput").innerText = arithmeticOutput;
+
+        // 4. Conditional Statements
+        function checkOddEven() {
+            let number = document.getElementById("userNumber").value;
+            if (number === "") {
+                document.getElementById("conditionalOutput").innerText = "Please enter a number.";
+                return;
+            }
+            let isEven = number % 2 === 0 ? "even" : "odd";
+            document.getElementById("conditionalOutput").innerText = `The number ${number} is ${isEven}.`;
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if (key == 'Enter') {
+                checkOddEven();
+            }
+        });
+
+
+        // 5. Loops
+        let loopOutput = "";
+        for (let i = 1; i <= 100; i++) {
+            loopOutput += i + " ";
+        }
+        document.getElementById("loopOutput").innerText = loopOutput;
+    </script>
+
+</body>
+</html>
