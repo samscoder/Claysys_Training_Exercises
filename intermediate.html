@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            margin-top: 10px;
+            padding: 8px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Intermediate Tasks</h1>
+
+    <h2>1. Array Manipulation</h2>
+    <p> Array Elements are: [3, 7, 1, 8, 2]</p>
+    <button onclick="arrayManipulation()">Find Largest Number</button>
+    <p id="arrayResult"></p>
+
+
+    <h2>2. Functions</h2>
+    <input type="text" id="celsius" placeholder="Enter Celsius">
+    <button onclick="convertTemperature()">Convert to Fahrenheit</button>
+    <p id="tempResult"></p>
+
+  
+    <h2>3. DOM Manipulation</h2>
+    <p id="domText">This is a paragraph.</p>
+    <button onclick="changeText()">Change Text</button>
+
+    
+    <h2>4. Events</h2>
+    <button id="colorButton">Change Background Color</button>
+
+   
+    <h2>5. Form Validation</h2>
+    <form>
+        <input type="email" id="email" placeholder="Enter Email" onfocusout="validateEmail()" autocomplete="off">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="validationResult"></p>
+
+    <script>
+    
+        function arrayManipulation() {
+            let numbers = [3, 7, 1, 8, 2];
+            let largest = Math.max(...numbers);
+            document.getElementById("arrayResult").textContent = "Largest number is " + largest;
+        }
+
+
+        function convertTemperature() {
+            let celsius = document.getElementById("celsius").value;
+            let fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById("tempResult").textContent = celsius + "°C is " + fahrenheit + "°F";
+        }
+
+
+        function changeText() {
+            document.getElementById("domText").textContent = "The text has been changed!";
+        }
+
+        document.getElementById("colorButton").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#d3d3d3";
+        });
+
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("validationResult").textContent = "Invalid email format.";
+            } 
+            else {
+                document.getElementById("validationResult").textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
